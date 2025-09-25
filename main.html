@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animação SVG com CSS</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        
+        .circulo {
+            stroke: #4CAF50;      
+            stroke-width: 10;       
+            fill: transparent;      
+            
+            stroke-dashoffset: 314;
+            
+            animation: desenhar-contorno 2s ease-out forwards,
+                       preencher-fundo 1s ease-in 1.2s forwards;
+        }
+
+        @keyframes desenhar-contorno {
+            to {
+                stroke-dashoffset: 0; 
+            }
+        }
+
+        @keyframes preencher-fundo {
+            from {
+                fill: transparent;
+            }
+            to {
+                fill: #4CAF50;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <svg width="120" height="120" viewBox="0 0 120 120">
+      <circle class="circulo" cx="60" cy="60" r="50" />
+    </svg>
+
+</body>
+</html>
